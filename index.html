@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小球探索游戏</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="gameWrapper">
+    <div id="gameContainer">
+      <div id="playerBall"></div> <!-- 玩家控制的小球 -->
+      <div class="mapObject L" style="left: 150px; top: 100px;">图书馆</div>
+      <div class="mapObject S" style="left: 300px; top: 300px;">神庙</div>
+      <div class="mapObject B" style="left: 400px; top: 400px;">宝箱</div>
+      <!-- 添加守护者 -->
+      <div class="guardian" style="left: 250px; top: 250px;"></div>
+      <div class="guardian" style="left: 350px; top: 350px;"></div>
+      <div id="message"></div> <!-- 显示提示信息 -->
+    </div>
+    <button id="startButton">开始游戏</button> <!-- 开始游戏按钮 -->
+    <button id="restartButton" style="display:none;">重新开始</button> <!-- 重新开始按钮 -->
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  #gameWrapper {
+    position: relative;
+    text-align: center;
+  }
+  
+  #gameContainer {
+    width: 500px;
+    height: 500px;
+    background-color: #87CEEB;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #000;
+  }
+  
+  #playerBall {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  .mapObject {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .L {
+    background-color: #00FF00;
+  }
+  
+  .S {
+    background-color: #FF4500;
+  }
+  
+  .B {
+    background-color: #FFD700;
+  }
+  
+  #message {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #fff;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  #restartButton {
+    background-color: #f44336;
+  }
+  
+  #restartButton:hover {
+    background-color: #e53935;
+  }
+  
+  /* 守护者样式 */
+  .guardian {
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+  }
+  
