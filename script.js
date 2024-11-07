@@ -9,11 +9,9 @@ let gameStarted = false;
 let playerPosition = { x: 50, y: 50 };
 let ballSpeed = 5;
 let keysCollected = 0;
-let map = false;  // 是否已获得地图
-let potion = false;  // 是否已获得药水
 let gameOver = false;
 
-// 地图定义 (L:药水和地图, S:守护者区域, B:宝藏)
+// 地图定义 (L:地图, S:守护者区域, B:宝藏)
 let locations = [
   { x: 150, y: 100, type: 'L', message: '小心！神庙有守护者！' },
   { x: 300, y: 300, type: 'S', message: '恭喜你，获得钥匙！' },
@@ -44,6 +42,7 @@ function render() {
       if (!gameOver) {
         gameOver = true;
         messageDiv.innerHTML = '你被守护者追上了！游戏失败。<br>点击“重新开始”按钮重新开始。';
+        restartButton.style.display = 'block'; // 显示重新开始按钮
       }
     }
   });
@@ -52,6 +51,7 @@ function render() {
   if (keysCollected === 1 && Math.abs(playerPosition.x - 400) < 20 && Math.abs(playerPosition.y - 400) < 20) {
     messageDiv.innerHTML = '恭喜你，成功打开宝箱获得宝藏！游戏胜利！';
     gameOver = true;
+    restartButton.style.display = 'block'; // 显示重新开始按钮
   }
 }
 
@@ -67,7 +67,7 @@ function handleInteraction(location) {
       break;
     case 'S':
       if (!potion) {
-        messageDiv.innerHTML = location.message + '<br>没有药水，你无法避开守护者。';
+        messageDiv.innerHTML = location.message +'<br>';
       } else {
         keysCollected++;
         messageDiv.innerHTML = '你获得了钥匙！可以打开宝箱。';
@@ -77,6 +77,7 @@ function handleInteraction(location) {
       if (keysCollected > 0) {
         messageDiv.innerHTML = location.message + '<br>你已经获得宝藏，游戏结束！';
         gameOver = true;
+        restartButton.style.display = 'block'; // 显示重新开始按钮
       }
       break;
   }
@@ -96,18 +97,14 @@ function initGame() {
   ];
   messageDiv.innerHTML = '游戏开始，使用方向键或鼠标控制小球。';
   startButton.style.display = 'none';
-  restartButton.style.display = 'none';
+  restartButton.style.display = 'none'; // 隐藏重新开始按钮
   gameContainer.style.display = 'block';
   render();
 }
 
 // 重新开始游戏
 function restartGame() {
-  gameStarted = false;
-  startButton.style.display = 'block';
-  restartButton.style.display = 'none';
-  gameContainer.style.display = 'none';
-  messageDiv.innerHTML = '游戏结束，点击“开始游戏”重新开始。';
+  initGame();
 }
 
 // 监听键盘事件
