@@ -9,9 +9,11 @@ let gameStarted = false;
 let playerPosition = { x: 50, y: 50 };
 let ballSpeed = 5;
 let keysCollected = 0;
+let map = false;  // 是否已获得地图
+let potion = false;  // 是否已获得药水
 let gameOver = false;
 
-// 地图定义 (L:地图, S:守护者区域, B:宝藏)
+// 地图定义 (L:药水和地图, S:守护者区域, B:宝藏)
 let locations = [
   { x: 150, y: 100, type: 'L', message: '小心！神庙有守护者！' },
   { x: 300, y: 300, type: 'S', message: '恭喜你，获得钥匙！' },
@@ -67,7 +69,7 @@ function handleInteraction(location) {
       break;
     case 'S':
       if (!potion) {
-        messageDiv.innerHTML = location.message +'<br>';
+        messageDiv.innerHTML = location.message + '<br>没有药水，你无法避开守护者。';
       } else {
         keysCollected++;
         messageDiv.innerHTML = '你获得了钥匙！可以打开宝箱。';
